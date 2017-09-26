@@ -58,8 +58,9 @@ wp_enqueue_style( 'lightbox-stylesheet', plugin_dir_url( __FILE__ ) . 'bower_com
 //Get the height and width of the image
 
 	foreach($gal_array as $img){
+
 		if(!is_dir($gal_dir.'/'.$img) && file_exists($gal_dir.'/'.$img)){
-					make_thumb($img_dir,$gal_dir.'/thumb/', $img);
+					make_thumb($gal_dir,$gal_dir.'/thumb/', $img);
 
 		$imgs .= '<div class="gal_thumb"><a target="_blank" href="'.$img_dir."/".$img.'" data-lightbox="'.$subdir.'"><img src="'.$img_dir."/thumb/".$img.'" /></a></div>';
 			}
@@ -78,7 +79,6 @@ function make_thumb($srcdir, $dest, $file) {
 	$scale = 0.25;
 	//Create the zoom_out and cropped image
 	$myImageThumb = imagecreatetruecolor($width*$scale,$height*$scale);
-
 	// Fill the two images
 	$b=imagecopyresampled($myImageThumb,$myImage,0,0,0,0,$width*$scale,$height*$scale,$width,$height);
 
