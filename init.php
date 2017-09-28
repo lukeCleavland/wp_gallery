@@ -34,7 +34,7 @@ wp_enqueue_style( 'lightbox-stylesheet', plugin_dir_url( __FILE__ ) . 'bower_com
 
 	.gal_thumb img{
 		width: auto !important;
-				max-height: 187px;
+		height: 187px;
 	}
 </style>
 <?php
