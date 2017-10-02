@@ -37,7 +37,7 @@ function build_gallery($atts){
        $a = shortcode_atts( array(
        'dir' => NULL
        ), $atts );
- echo $basicGallery->show_gallery($atts);
+ return $basicGallery->show_gallery($atts);
 
 }
 

@@ -89,7 +89,6 @@
         ?>
         <div class="wrap">
           <h1>Basic Gallery Upload</h1>
-<p><?=$message; ?></p>
           <?php include('fileupload/form.php'); ?>
           <hr>
           <h2>Uploads Directory</h2>
