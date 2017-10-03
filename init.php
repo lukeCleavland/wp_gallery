@@ -38,7 +38,10 @@ function build_gallery($atts){
        $a = shortcode_atts( array(
        'dir' => NULL
        ), $atts );
- return $basicGallery->show_gallery($atts);
+		 if(!is_admin()){
+			 return $basicGallery->show_gallery($atts);
+		 }
+
 
 }
 
