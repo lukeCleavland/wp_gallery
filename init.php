@@ -22,8 +22,9 @@ if( is_admin() ){
 function process_upload_form() {
 $settings = new BasicGallery_Settings();
 $directory = $_POST['directory'];
-upload($settings);
-make_gallery($directory);
+ upload($settings);
+	make_gallery($directory);
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 add_action( 'admin_post_nopriv_upload_form', 'process_upload_form' );
 add_action( 'admin_post_upload_form', 'process_upload_form' );
@@ -42,7 +43,6 @@ function build_gallery($atts){
 }
 
 function make_gallery($directory){
-            echo $directory;
 			$subdir= $directory;
 			$dir = wp_upload_dir();
 			$gal_dir = $dir['basedir'].'/'.$subdir;
