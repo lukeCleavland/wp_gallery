@@ -69,7 +69,7 @@ function make_gallery($directory){
 
 function make_thumb($srcdir, $dest, $file) {
 				if(!(file_exists($dest.$file))){
-					$thumbSize = 100;
+					$thumbSize = 175;
 			$name = $srcdir.'/'.$file;
 			$myImage = imagecreatefromjpeg($name);
 			list($width, $height) = getimagesize($name);
