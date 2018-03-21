@@ -72,6 +72,8 @@ function upload($settings){
 
       if($error == NULL){
            move_uploaded_file($tmp_name,$dir_path.'/'.$uploads_dir.'/'.$name);
+      }else{
+        echo $error; echo " <a href='".$_SERVER['HTTP_REFERER']."'>&lt;&lt; back</a>"; exit;
       }
     }
   }

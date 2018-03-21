@@ -14,22 +14,33 @@
 include_once('settings.php');
 include_once('gallery.php');
 include_once('fileupload/upload.php');
+include_once('fileupload/delete.php');
 if( is_admin() ){
    $settings = new BasicGallery_Settings();
 
 }
 
-function process_upload_form() {
+function process_upload_galleryform() {
 $settings = new BasicGallery_Settings();
 $directory = $_POST['directory'];
- upload($settings);
-	make_gallery($directory);
-	header('Location: ' . $_SERVER['HTTP_REFERER']);
+$error = upload($settings);
+make_gallery($directory);
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
-add_action( 'admin_post_nopriv_upload_form', 'process_upload_form' );
-add_action( 'admin_post_upload_form', 'process_upload_form' );
+add_action( 'admin_post_nopriv_upload_form', 'process_upload_galleryform' );
+add_action( 'admin_post_upload_form', 'process_upload_galleryform' );
 
-add_shortcode( 'gallery', 'build_gallery' );
+function process_delete_galleryform() {
+$settings = new BasicGallery_Settings();
+$directory = $_POST['directory'];
+delete($settings);
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+add_action( 'admin_post_nopriv_delete_form', 'process_delete_galleryform' );
+add_action( 'admin_post_delete_form', 'process_delete_galleryform' );
+
+
+
 function build_gallery($atts){
 	$basicGallery = new BasicGallery();
 	wp_enqueue_script( 'lightboxjs', plugin_dir_url( __FILE__ ) . 'bower_components/lightbox2/dist/js/lightbox.js', array(), NULL, true );
@@ -44,6 +55,7 @@ function build_gallery($atts){
 
 
 }
+add_shortcode( 'gallery', 'build_gallery' );
 
 function make_gallery($directory){
 			$subdir= $directory;

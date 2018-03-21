@@ -1,13 +1,6 @@
 <?php
  class BasicGallery_Settings
 {
-    /**
-     * Holds the values to be used in the fields callbacks
-     */
-    /**
-     * Start up
-     */
-
 
 
 			function gal_settings() {
@@ -53,7 +46,7 @@
 																	if($file != 'thumb'){
 																	$filelist .= '<li class="file">'.$file.'</li>';
 																			}
-																	$gal_dir .= "<a style='cursor:pointer'>".$gallery."</a>"."<ul style='padding-left:25px; display:none'><li class='file' >".$filelist."</li></ul>";
+																	$gal_dir .= "<a style='cursor:pointer'>".$gallery."</a>"."<ul style='padding-left:25px'><li class='file' >".$filelist."</li></ul>";
 										}
 															$list .= '<li class="directory">'.$gal_dir.'</li>';
 							}
@@ -88,10 +81,10 @@
         $this->options = get_option( 'basic_gallery_option_name' );
         ?>
         <div class="wrap">
-          <h1>Basic Gallery Upload</h1>
+          <h1>Basic Gallery</h1>
           <?php include('fileupload/form.php'); ?>
           <hr>
-          <h2>Uploads Directory</h2>
+          <h2 class="form_title">Uploads Directory</h2>
           <?php echo $this->read_dir();?>
         </div>
         <script>
@@ -99,7 +92,7 @@
          for(i=0;i<directory.length;i++){
                directory[i].addEventListener("click", function(){
 
-                if(this.getElementsByTagName('ul')[0].style.display == "block"){
+                if(this.getElementsByTagName('ul')[0].style.display != "none"){
                  this.getElementsByTagName('ul')[0].style.display = "none";
                 }else{
                  this.getElementsByTagName('ul')[0].style.display = "block";
@@ -111,30 +104,4 @@
         </script>
         <?php
     }
-
-
-
-
-
-
-    /**
-     * Sanitize each setting field as needed
-     *
-     * @param array $input Contains all settings fields as array keys
-     */
-
-
-    /**
-     * Print the Section text
-     */
-
-
-
-    /**
-     * Get the settings option array and print one of its values
-     */
-
-
-
-
 }

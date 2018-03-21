@@ -4,24 +4,21 @@ class BasicGallery
 
 
 	public function show_gallery($a){ ?>
-		<style>
-					#gallery_wrapper{
-									text-align: center;
-					}
+	<style>
+		#gallery_wrapper{
+			text-align: center;
+		}
 		.gal_thumb{
 			display: inline-block;
 			margin: 4px;
-
 		}
+
 	</style>
 	<?php
 
 		$subdir= $a['dir'];
 		$dir = wp_upload_dir();
-
-
-								$gal_dir = $dir['basedir'].'/'.$subdir;
-
+		$gal_dir = $dir['basedir'].'/'.$subdir;
 		$img_dir = $dir['baseurl'].'/'.$subdir;
 		$imgs = NULL;
 
@@ -38,7 +35,7 @@ class BasicGallery
 		}
 		return "<div id='gallery_wrapper'>".$imgs."</div>";
 					}else{
-									echo "The directory you specified <strong>'".$subdir."'</strong> doesn't exist.";
+			echo "The directory you specified <strong>'".$subdir."'</strong> doesn't exist.";
 					}
 
 	}
