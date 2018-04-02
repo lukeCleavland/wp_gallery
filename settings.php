@@ -65,7 +65,7 @@
         // This page will be under "Settings"
         add_options_page(
             'Basic Gallery Settings', //page_title
-            'Basic Gallery Settings', //menu_title
+            'Basic Gallery', //menu_title
             'manage_options', //capability
             'basicgal-settings', //menu_slug
             array( $this, 'create_admin_page' )
