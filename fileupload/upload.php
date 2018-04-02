@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') OR exit;
 function upload($settings){
   if (! wp_verify_nonce( $_POST['upload_form'], 'action' ))
    {

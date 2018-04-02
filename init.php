@@ -11,6 +11,7 @@
  * Domain Path: /languages
 
  */
+defined('ABSPATH') OR exit;
 include_once('settings.php');
 include_once('gallery.php');
 include_once('fileupload/upload.php');
