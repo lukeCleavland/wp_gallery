@@ -1,21 +1,19 @@
 <?php
 class BasicGallery
 {
+	public function ff_style() {
+			$plugindir = basename(__DIR__);
+		wp_enqueue_style( 'gal_styles', plugins_url().'/'.$plugindir.'/galleryStyle.css', false, null, false );
+	}
+	
 
 
 	public function show_gallery($a){ ?>
-	<style>
-		.gallery_wrapper{
-			text-align: center;
-		}
-		.gal_thumb{
-			display: inline-block;
-			margin: 4px;
-		}
-
-	</style>
+	
 	<?php
-
+		if( !is_admin() ){
+		add_action( 'wp_enqueue_scripts', array($this->ff_style() ));
+	}
 		$subdir= $a['dir'];
 		$dir = wp_upload_dir();
 		$gal_dir = $dir['basedir'].'/'.$subdir;
