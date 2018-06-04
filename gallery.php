@@ -5,7 +5,7 @@ class BasicGallery
 
 	public function show_gallery($a){ ?>
 	<style>
-		#gallery_wrapper{
+		.gallery_wrapper{
 			text-align: center;
 		}
 		.gal_thumb{
@@ -33,7 +33,7 @@ class BasicGallery
 			$imgs .= '<div class="gal_thumb"><a target="_blank" href="'.$img_dir."/".$img.'" data-lightbox="'.$subdir.'"><img src="'.$img_dir."/thumb/".$img.'" /></a></div>';
 				}
 		}
-		return "<div id='gallery_wrapper'>".$imgs."</div>";
+		return "<div class='gallery_wrapper'>".$imgs."</div>";
 					}else{
 			echo "The directory you specified <strong>'".$subdir."'</strong> doesn't exist.";
 					}
